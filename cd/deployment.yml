@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: k8s-helloworld-dotnetcore-deployment
+spec:
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: k8s-helloworld-dotnetcore
+    spec:
+      containers:
+      - name: k8s-helloworld-dotnetcore
+        image: dsosedovpvtl/k8s-helloworld-dotnetcore
+        ports:
+        - containerPort: 80
+  selector:
+    matchLabels:
+      app: k8s-helloworld-dotnetcore
